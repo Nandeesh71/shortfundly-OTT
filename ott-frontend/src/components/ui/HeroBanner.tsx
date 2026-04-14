@@ -2,13 +2,18 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
+import MyListButton from "@/components/ui/MyListButton";
 
 interface BannerMovie {
   id: string;
   title: string;
-  img: string;
+  thumbnail?: string;
+  backdrop?: string;
   isPremium?: boolean;
-  metadata?: string;
+  year?: number;
+  duration?: string;
+  genre?: string;
+  language?: string;
 }
 
 export default function HeroBanner({ banners }: { banners: BannerMovie[] }) {
@@ -26,8 +31,8 @@ export default function HeroBanner({ banners }: { banners: BannerMovie[] }) {
         
         {/* Main image representing the loaded activeMovie poster */}
         <div className="relative w-full h-full gradient-mask-l flex justify-end">
-          <Image 
-            src={activeMovie.img} 
+          <Image
+            src={activeMovie.backdrop ?? activeMovie.thumbnail ?? "/vercel.svg"}
             alt={activeMovie.title}
             fill
             className="object-cover object-center mix-blend-screen opacity-90 transition-opacity duration-500 ease-in-out"
@@ -58,7 +63,9 @@ export default function HeroBanner({ banners }: { banners: BannerMovie[] }) {
           </h1>
           
           <p className="text-white/60 text-sm md:text-[15px] font-medium mb-6">
-            {activeMovie.metadata || "2026 • 20m • Drama • Tamil"}
+            {[activeMovie.year, activeMovie.duration, activeMovie.genre, activeMovie.language]
+              .filter(Boolean)
+              .join(" • ") || "2026 • 20m • Drama • Tamil"}
           </p>
 
           <div className="flex gap-3">
@@ -66,10 +73,7 @@ export default function HeroBanner({ banners }: { banners: BannerMovie[] }) {
               <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
               Play
             </Link>
-            <button className="bg-black/40 border border-white/20 hover:bg-white/10 text-white px-6 py-3 rounded font-bold text-sm flex items-center gap-2 backdrop-blur-md transition-colors">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"/></svg>
-              My List
-            </button>
+            <MyListButton contentId={activeMovie.id} />
           </div>
         </div>
 
@@ -83,7 +87,7 @@ export default function HeroBanner({ banners }: { banners: BannerMovie[] }) {
                   activeIndex === idx ? 'border-white scale-105 shadow-[0_0_15px_rgba(255,255,255,0.4)]' : 'border-white/10 opacity-50 hover:opacity-100 hover:border-white/40'
               }`}
             >
-              <Image src={banner.img} alt={banner.title} fill className="object-cover" unoptimized />
+              <Image src={banner.thumbnail ?? banner.backdrop ?? "/vercel.svg"} alt={banner.title} fill className="object-cover" unoptimized />
             </button>
           ))}
         </div>

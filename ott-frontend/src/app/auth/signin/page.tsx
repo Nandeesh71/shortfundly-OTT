@@ -27,16 +27,16 @@ export default function Signin() {
                 <input type="checkbox" className="rounded bg-black/50 border-white/[0.1] text-primary focus:ring-primary" />
                 <span className="text-white/70">Remember me</span>
               </label>
-              <Link href="#" className="text-primary hover:text-orange-400">Forgot password?</Link>
+              <Link href="/auth/forgot-password" className="text-primary hover:text-orange-400">Forgot password?</Link>
             </div>
-            <button type="button" className="w-full py-3 mt-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-lg transition-colors shadow-[0_0_15px_rgba(251,90,50,0.3)]">
-              Sign In
-            </button>
+            <Link href="/" className="block w-full py-3 mt-4 bg-primary hover:bg-orange-600 text-white font-bold rounded-lg transition-colors shadow-[0_0_15px_rgba(251,90,50,0.3)] text-center">
+              Sign In (Test Mode)
+            </Link>
           </form>
 
           <div className="mt-8 pt-6 border-t border-white/[0.06] text-center">
             <p className="text-white/60 text-sm">
-              Don't have an account? <Link href="#" className="text-primary hover:text-orange-400 font-medium">Subscribe Now</Link>
+              Don&apos;t have an account? <Link href="/subscribe" className="text-primary hover:text-orange-400 font-medium">Subscribe Now</Link>
             </p>
           </div>
         </div>

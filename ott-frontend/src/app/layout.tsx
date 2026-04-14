@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Shortfundly OTT | Reverse Engineered",
-  description: "A professional reverse-engineered build of Shortfundly OTT.",
+  title: "PulsePlay OTT | Test Platform",
+  description: "A redesigned, test-ready OTT platform with backend adapter support.",
 };
 
 export default function RootLayout({

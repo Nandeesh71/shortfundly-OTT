@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import MediaCard from './MediaCard';
+import Link from "next/link";
 
 interface ContentCarouselProps {
   title: string;
@@ -27,7 +28,7 @@ export default function ContentCarousel({ title, items }: ContentCarouselProps) 
     <section className="w-full py-6">
       <div className="flex justify-between items-end mb-4 px-4 md:px-8">
         <h2 className="text-xl md:text-2xl font-bold text-white/95">{title}</h2>
-        <button className="text-xs text-primary hover:text-white transition-colors uppercase font-bold tracking-wider">View All &gt;</button>
+        <Link href="/browse" className="text-xs text-primary hover:text-white transition-colors uppercase font-bold tracking-wider">View All &gt;</Link>
       </div>
 
       <div className="relative group/carousel">

@@ -2,10 +2,49 @@ import Link from 'next/link';
 
 export default function Footer() {
   const footerLinks = [
-    { title: "Company", links: ["About Us", "Our Story", "How it works", "Browse Festivals", "Culture", "Careers", "Advertise with us"] },
-    { title: "Resources", links: ["Blogs", "Press", "Newsroom", "Awards & Recognition", "Get the app", "FAQ"] },
-    { title: "Legal", links: ["Terms & Conditions", "Privacy & Policy", "Grievance Redressal", "Refund Policy", "Shipping Policy"] },
-    { title: "Community", links: ["Whatsapp Community", "Telegram Community", "Facebook Community", "Instagram Community", "Youtube Community"] },
+    {
+      title: "Company",
+      links: [
+        { label: "About Us", href: "/about" },
+        { label: "Our Story", href: "/our-story" },
+        { label: "How it works", href: "/how-it-works" },
+        { label: "Browse Festivals", href: "/browse-festivals" },
+        { label: "Culture", href: "/culture" },
+        { label: "Careers", href: "/careers" },
+        { label: "Advertise with us", href: "/advertise" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "Blogs", href: "/blogs" },
+        { label: "Press", href: "/press" },
+        { label: "Newsroom", href: "/newsroom" },
+        { label: "Awards & Recognition", href: "/awards-recognition" },
+        { label: "Get the app", href: "/get-the-app" },
+        { label: "FAQ", href: "/faq" },
+      ],
+    },
+    {
+      title: "Legal",
+      links: [
+        { label: "Terms & Conditions", href: "/terms-and-conditions" },
+        { label: "Privacy & Policy", href: "/privacy-policy" },
+        { label: "Grievance Redressal", href: "/grievances-redressal" },
+        { label: "Refund Policy", href: "/refund-policy" },
+        { label: "Shipping Policy", href: "/shipping-policy" },
+      ],
+    },
+    {
+      title: "Community",
+      links: [
+        { label: "Whatsapp Community", href: "/community/whatsapp" },
+        { label: "Telegram Community", href: "/community/telegram" },
+        { label: "Facebook Community", href: "/community/facebook" },
+        { label: "Instagram Community", href: "/community/instagram" },
+        { label: "Youtube Community", href: "/community/youtube" },
+      ],
+    },
   ];
 
   return (
@@ -16,9 +55,9 @@ export default function Footer() {
             <h3 className="font-semibold text-white/90 text-sm tracking-wide">{column.title}</h3>
             <ul className="flex flex-col gap-2">
               {column.links.map((link) => (
-                <li key={link}>
-                  <Link href="#" className="text-sm text-gray-400 hover:text-primary transition-colors">
-                    {link}
+                <li key={link.label}>
+                  <Link href={link.href} className="text-sm text-gray-400 hover:text-primary transition-colors">
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -29,10 +68,10 @@ export default function Footer() {
           <h3 className="font-semibold text-white/90 text-sm tracking-wide">Help & Support</h3>
           <ul className="flex flex-col gap-2">
             <li>
-              <Link href="#" className="text-sm text-gray-400 hover:text-primary transition-colors">Help Center</Link>
+              <Link href="/help-center" className="text-sm text-gray-400 hover:text-primary transition-colors">Help Center</Link>
             </li>
             <li>
-              <Link href="#" className="text-sm text-gray-400 hover:text-primary transition-colors">Support Service</Link>
+              <Link href="/support-service" className="text-sm text-gray-400 hover:text-primary transition-colors">Support Service</Link>
             </li>
           </ul>
         </div>
